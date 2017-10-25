@@ -11,7 +11,7 @@ press0 = 0
 press1 = 0
 
 # Create file
-with open('keys.csv', 'w') as csvfile:
+with open('../data/keys.csv', 'w') as csvfile:
 	fieldnames = ['up', 'down', 'image']
 	writer = csv.DictWriter(csvfile, fieldnames = fieldnames)
 	writer.writeheader()
@@ -48,9 +48,9 @@ def on_release(key):
 	if key == keyboard.Key.esc:
 		return False
 
-# Function to apeend to create dataset file
+# Function to append to create dataset file
 def csv_writer(press0, press1, image):
-	with open('keys.csv', 'a') as csvfile:
+	with open('../data/keys.csv', 'a') as csvfile:
 		fieldnames = ['up', 'down', 'image']
 		writer = csv.DictWriter(csvfile, fieldnames = fieldnames)
 		writer.writerow({'up' : press0, 'down' : press1, 'image' : image})
@@ -59,7 +59,7 @@ def csv_writer(press0, press1, image):
 pa.click(300,300)
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
 	while True:
-		path = 'snaps/' + str(count)
+		path = '../data/snaps/' + str(count)
 		snap(path)
 		csv_writer(press0, press1, path)
 		#print ('{}, {}, '.format(press0, press1) + path)
