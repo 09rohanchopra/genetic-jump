@@ -59,7 +59,7 @@ def csv_writer(press0, press1, image):
 pa.click(300,300)
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
 	while True:
-		path = '../data/snaps/' + str(count)
+		path = str(count)
 		snap(path)
 		csv_writer(press0, press1, path)
 		#print ('{}, {}, '.format(press0, press1) + path)
