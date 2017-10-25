@@ -41,11 +41,11 @@ def telemetry():
 
 def send_command(keys):
 
-	value = keys[0] > 0.5
+	value = np.argmax(keys[0])
 	print(value)
-	if value[0] and not value[1]:
+	if value == 1:
 		keyboard.press(Key.up)
-	elif not value[0] and value[1]:
+	elif value == 2:
 		keyboard.press(Key.down)
 
 if __name__ == '__main__':
